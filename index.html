@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COVID Quiz</title>
+    <link href="quiz.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="sideNav" class="nav"></div>
+
+      <div class="title">COVID QUIZ</div>
+
+    <div id="quizContainer" class="container">
+
+      <div id="question" class="question">Question</div>
+      <label class="option"><input id="radio1" type="radio" name="option" value="1" /><span id="opt1">1</span></label>
+      <label class="option"><input id="radio2" type="radio" name="option" value="2" /><span id="opt2">2</span></label>
+      <label class="option"><input id="radio3" type="radio" name="option" value="3" /><span id="opt3">3</span></label>
+      <label class="option"><input id="radio4" type="radio" name="option" value="4" /><span id="opt4">4</span></label>
+      <br><br><button id="nextButton" class="nextBtn" onclick="loadNextQuestion();">Next</button>
+      <button id="prevButton" class="prevBtn" onclick="loadPrevQuestion();">Previous</button>
+      </div>
+    <div id="result" class="resultContainer" style="display:none;"></div>
+    <div id="notify" class="notifyContainer" style="display:none;">
+      <p id="check">"Your answer is CORRECT!!"</p>
+      <button id="continue1" class="continue" onclick="goOn();">Continue</button>
+    </div>
+    <div id="notify2" class="notifyContainer" style="display:none;">
+      <p id="check2">"Your answer is INCORRECT!!"</p>
+      <button id="continue2" class="continue" onclick="goOn2();">Continue</button>
+    </div>
+    <script src="array.js"></script>
+    <script src="script.js"></script>
+    </body>
+</html>

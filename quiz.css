@@ -1,0 +1,143 @@
+body{
+  font-family: serif;
+  background: #252B49;
+}
+
+.container{}
+
+.continue{
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 20px;
+  border-color: white;
+  float: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40%;
+  background-color: #2C8CED;
+  font-family: cursive;
+  color: white;
+}
+
+.continue:hover{
+  background-color: darkblue;
+  cursor: pointer;
+}
+
+.notifyContainer{
+  font-size: 30px;
+  font-style: absolute;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 20px;
+  border: 3px solid #107EEB;
+  border-radius: 20px;
+  color: white;
+  font-family:cursive;
+  font-size: 40px;
+}
+
+.resultContainer{
+  font-size: 30px;
+  font-style: absolute;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 20px;
+  border: 3px solid #107EEB;
+  border-radius: 20px;
+  color: white;
+  font-family:cursive;
+  font-size: 40px;
+}
+
+.title{
+  text-align: center;
+  margin: 20px 0 10px 0;
+  font-size: 45px;
+  color: white;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.question{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin: 30px 0 10px 0;
+  font-size: 30px;
+  width: 100%;
+  color: white;
+  font-family: cursive;
+}
+
+.option{
+  width: 1000px;
+  padding: 20px 20px 20px 20px;
+  border: 3px solid white;
+  border-radius: 20px;
+  border-color: #107EEB;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  margin-left: 15%;
+  vertical-align: middle;
+  display:inline-block;
+  font-size: 22px;
+  font: white;
+  align-items: center;
+  align-self: center;
+  position: center;
+  color: white;
+  font-family: cursive;
+  }
+
+
+
+  .option:hover{
+    background-color: darkblue;
+    cursor: pointer;
+  }
+
+.nextBtn{
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 20px;
+  border-color: white;
+  float: right;
+  margin-top: 20px;
+  margin-right: 10%;
+  background-color: #2C8CED;
+  transform-origin: bottom;
+  font-family: cursive;
+  color: white;
+}
+
+.prevBtn{
+  padding: 12px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 10%;
+  background-color: #107EEB;
+  font-size: 16px;
+  border-radius: 20px;
+  border-color: white;
+  color: white;
+  font-family: cursive;
+}
+
+.nextBtn:hover{
+  background-color: darkblue;       /*button shape change yet to be done*/
+  cursor: pointer;
+}
+
+
+.prevBtn:hover{
+  background-color: darkblue;
+  cursor: pointer;
