@@ -21,6 +21,88 @@ var notifyCont = document.getElementById('notify');
 var notifyCont2 = document.getElementById('notify2');
 var notification = document.getElementById('check');
 var notification2 = document.getElementById('check2');
+var sideNav = document.getElementById('sideNav');
+var name;
+var mins = 10;
+var secs = mins * 60;
+var timer = document.getElementById('timer')
+
+window.onload = evt =>{
+  name = prompt('Enter your name to begin');
+  countdown();
+}
+
+function showResult(){
+  container.style.display = 'none';
+  resultCont.style.display = '';
+  notifyCont.style.display = 'none';
+  notifyCont2.style.display = 'none';
+  resultCont.textContent =  `${name} ` + 'your score is ' + score + ' out of 100';
+  timer.style.display = 'none';
+}
+
+function countdown() {
+    setTimeout('Decrement()', 60);
+}
+
+function Decrement() {
+    if (document.getElementById) {
+        minutes = document.getElementById("minutes");
+        seconds = document.getElementById("seconds");
+
+        if (seconds < 59) {
+            seconds.value = secs;
+        }
+
+        else {
+            minutes.value = getminutes();
+            seconds.value = getseconds();
+        }
+
+        if (mins < 1) {
+            minutes.style.color = "red";
+            seconds.style.color = "red";
+        }
+
+        if (mins < 0) {
+            showResult();
+            minutes.value = 0;
+            seconds.value = 0;
+        }
+        else {
+            secs--;
+            setTimeout('Decrement()', 1000);
+        }
+    }
+}
+
+function getminutes() {
+    mins = Math.floor(secs / 60);
+    return mins;
+}
+
+function getseconds() {
+    return secs - Math.round(mins * 60);
+}
+
+function shuffle(array){
+  array.sort(() => Math.random() - 0.5);
+}
+
+shuffle(questions);
+
+for(let i=0; i<totQuestions; i++){
+    let qn = document.createElement('div')
+    qn.className = 'qNumber'
+    qn.id = 'qn'+i
+    qn.textContent = i+1
+    qn.addEventListener('click', () => {
+        currentQuestion = i
+      loadQuestion(currentQuestion);
+
+    })
+    sideNav.appendChild(qn);
+}
 
 function notify(){
   container.style.display = 'none';
@@ -83,6 +165,24 @@ function loadQuestion(){
   opt2.textContent = '   ' + questions[currentQuestion].option2;
   opt3.textContent = '   ' + questions[currentQuestion].option3;
   opt4.textContent = '   ' + questions[currentQuestion].option4;
+
+  var show = document.getElementById(`qn${currentQuestion}`);
+if(!questions[currentQuestion].answered)
+  {show.style.background = 'darkblue';}
+  if(currentQuestion == totQuestions-1){
+    nextBtn.textContent = 'Finish';
+  }
+  else{
+    nextBtn.textContent = 'Next';
+  }
+
+  if(currentQuestion == 0){
+    prevBtn.style.display = 'none';
+  }
+  else {
+    prevBtn.style.display = '';
+  }
+
   }
 
 
@@ -105,10 +205,14 @@ function loadQuestion(){
       if(answer == questions[currentQuestion].answer){
         score += 10;
         console.log('correct answer marked');
+        var show = document.getElementById(`qn${currentQuestion}`);
+        show.style.background = 'green';
         notify();
       }
       else{
         console.log('incorrect answer marked');
+        var show = document.getElementById(`qn${currentQuestion}`);
+        show.style.background = 'red';
         notify2();
       }
 
@@ -130,11 +234,7 @@ function loadQuestion(){
       }
 
       if(currentQuestion == totQuestions){
-        container.style.display = 'none';
-        resultCont.style.display = '';
-        notifyCont.style.display = 'none';
-        notifyCont2.style.display = 'none';
-        resultCont.textContent = 'Your score is ' + score + ' out of 100';
+          showResult();
       }
 
 
@@ -162,10 +262,14 @@ function loadPrevQuestion(){
 
   if(answer == questions[currentQuestion].answer){
     console.log('correct answer marked');
+    var show = document.getElementById(`qn${currentQuestion}`);
+    show.style.background = 'green';
     notify();
   }
   else{
     console.log('incorrect answer marked');
+    var show = document.getElementById(`qn${currentQuestion}`);
+    show.style.background = 'red';
     notify2();
   }
 
